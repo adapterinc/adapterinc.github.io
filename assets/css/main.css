@@ -2186,6 +2186,16 @@ input, select, textarea {
 		padding: 7.5em 0 2em 0;
 		cursor: default;
 	}
+	
+		#header canvas {
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
 
 		#header:before {
 			content: '';
