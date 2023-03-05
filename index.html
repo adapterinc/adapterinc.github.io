@@ -11,18 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* ---- particles.js container ---- */
-      #header canvas {
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-		</style>
+		<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" data-deferred="1"></script>
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
@@ -42,8 +31,32 @@
 						</div>
 
 					<!-- Nav -->
-					<!-- <div id="nav"></div> -->
-					<nav include-html="nav.html"></nav>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<!-- <li>
+									<a href="#">Dropdown</a>
+									<ul>
+											<li><a href="#">Lorem ipsum dolor</a></li>
+											<li><a href="#">Magna phasellus</a></li>
+											<li><a href="#">Etiam dolore nisl</a></li>
+											<li>
+													<a href="#">And a submenu &hellip;</a>
+													<ul>
+															<li><a href="#">Lorem ipsum dolor</a></li>
+															<li><a href="#">Phasellus consequat</a></li>
+															<li><a href="#">Magna phasellus</a></li>
+															<li><a href="#">Etiam dolore nisl</a></li>
+													</ul>
+											</li>
+											<li><a href="#">Veroeros feugiat</a></li>
+									</ul>
+							</li> -->
+							<!-- <li><a href="left-sidebar.html">Left Sidebar</a></li> -->
+							<!-- <li><a href="right-sidebar.html">Right Sidebar</a></li> -->
+							<li><a href="no-sidebar.html">Business</a></li>
+						</ul>
+					</nav>
 
 				</div>
 
@@ -369,78 +382,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js" integrity="sha512-jq8sZI0I9Og0nnZ+CfJRnUzNSDKxr/5Bvha5bn7AHzTnRyxUfpUArMzfH++mwE/hb2efOo1gCAgI+1RMzf8F7g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-      		<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" data-deferred="1"></script>
 
 			<script>
-				function includeHTML(callback) {
-					var z, i, elmnt, file, xhr;
-					/*loop through a collection of all HTML elements:*/
-					z = document.getElementsByTagName("*");
-					for (i = 0; i < z.length; i++) {
-						elmnt = z[i];
-						/*search for elements with a certain atrribute:*/
-						file = elmnt.getAttribute("include-html");
-						//console.log(file);
-						if (file) {
-							/*make an HTTP request using the attribute value as the file name:*/
-							xhr = new XMLHttpRequest();
-							xhr.onreadystatechange = function() {
-								if (this.readyState == 4) {
-									if (this.status == 200) {
-										elmnt.innerHTML = this.responseText;
-									}
-									if (this.status == 404) {
-										elmnt.innerHTML = "Page not found.";
-									}
-									/*remove the attribute, and call this function once more:*/
-									elmnt.removeAttribute("include-html");
-									includeHTML(callback);
-								}
-							};
-							xhr.open("GET", file, true);
-							xhr.send();
-							/*exit the function:*/
-							return;
-						}
-					}
-					setTimeout(function() {
-						callback();
-					}, 0);
-				}
-				function includeRouter(cb) {
-					var content, file, xhttp, i;
-					document.body.addEventListener('click', function (e) {
-						file = e.target.getAttribute('route-link');
-						if (file) {
-							content = document.getElementById('content');
-							xhttp = new XMLHttpRequest();
-							xhttp.onreadystatechange = function() {
-								if (this.readyState == 4) {
-									if (this.status == 200) {
-										content.innerHTML = this.responseText; 
-										var scripts = content.getElementsByTagName('script');
-										for (var i = 0; i < scripts.length; i++) {
-											eval(scripts[i].text); 
-										}
-										setTimeout(function() {
-											cb(e);
-										}, 0)
-									}
-									if (this.status == 404) {
-										content.innerHTML = 'Page not found.';
-									}
-								}
-							}      
-							xhttp.open('GET', file, true);
-							xhttp.send();
-						}
-					});
-				}
 				window.onload = function() {
-					// const nav = document.getElementById("nav");
- 					// nav.innerHTML = '<object type="text/html" data="nav.html"></object>';
-					 includeHTML(includeRouter);
 				};
 
         window.addEventListener('DOMContentLoaded', (event) => {
